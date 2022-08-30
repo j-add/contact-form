@@ -1,21 +1,26 @@
 $primaryColor: #016FB9;
+$error: darkred;
 
-* {
-  box-sizing: border-box;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  max-width: 400px;
+@mixin container {
   margin: 10px auto;
   padding: 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
   font-family: sans-serif;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  max-width: 400px;
 
   h1 {
     margin-top: 0;
@@ -69,10 +74,6 @@ form {
 
       &:focus {
         border: 2px solid $primaryColor;
-
-        &+i {
-          color: red;
-        }
       }
 
     }
@@ -91,29 +92,28 @@ form {
     }
   }
 
+  .antispam {
+    display: none;
+  }
+
   .required {
     color: darkred;
   }
 
   .error {
     input, textarea {
-      border: 1px solid darkred;
+      border: 1px solid $error;
     }
 
     small {
-      color: darkred;
+      color: $error;
     }
   }
 }
 
 .message {
+  @include container;
   max-width: 400px;
-  margin: 10px auto;
-  padding: 40px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-family: sans-serif;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 
   h1 {
     margin-top: 0;
