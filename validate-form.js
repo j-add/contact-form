@@ -3,6 +3,12 @@ const emailInput = document.getElementById('input-email');
 const messageInput = document.getElementById('input-message');
 const submitButton = document.querySelector('button[type="submit"]');
 
+let inputs = [nameInput, emailInput, messageInput];
+
+let nameErr = "Please enter your name";
+let emailErr = "Please enter a valid email address";
+let messageErr = "Please enter your message";
+
 const displayErrMsg = (input, msg) => {
     input.parentElement.classList.add('error');
     input.parentElement.querySelector('small').innerText = msg.toString()
@@ -30,23 +36,33 @@ const validateMessage = () => {
     return messageInput.value.trim() !== "";
 }
 
+//Validate on blur
+nameInput.addEventListener('blur', () => {
+    validateName() ? clearErrMsg(nameInput) : displayErrMsg(nameInput, nameErr);
+})
 
+emailInput.addEventListener('blur', () => {
+    validateEmail() ? clearErrMsg(emailInput) : displayErrMsg(emailInput, emailErr);
+})
+
+messageInput.addEventListener('blur', () => {
+    validateMessage() ? clearErrMsg(messageInput) : displayErrMsg(messageInput, messageErr);
+})
 
 //Validate on submit button press - prevent submit if not valid
 submitButton.addEventListener('click', (e) => {
-    let inputs = [nameInput, emailInput, messageInput];
     inputs.forEach((value) => clearErrMsg(value));
 
     if (!validateName()) {
-        displayErrMsg(nameInput, "Please enter your name");
+        displayErrMsg(nameInput, nameErr);
     }
 
     if (!validateEmail()) {
-        displayErrMsg(emailInput,"Please enter a valid email address");
+        displayErrMsg(emailInput,emailErr);
     }
 
     if (!validateMessage()) {
-        displayErrMsg(messageInput, "Please enter your message");
+        displayErrMsg(messageInput, messageErr);
     }
 
     if (!validateName() || !validateEmail() || !validateMessage()) {
