@@ -3,6 +3,17 @@ const emailInput = document.getElementById('input-email');
 const messageInput = document.getElementById('input-message');
 const submitButton = document.querySelector('button[type="submit"]');
 
+const displayErrMsg = (input, msg) => {
+    input.parentElement.classList.add('error');
+    input.parentElement.querySelector('small').innerText = msg.toString()
+}
+
+const clearErrMsg = (input) => {
+    let formGroup = input.parentElement;
+    formGroup.classList.remove('error');
+    formGroup.querySelector('small').innerText = "";
+}
+
 //Validate name - Check not empty
 const validateName = () => {
     return nameInput.value.trim();
@@ -19,30 +30,23 @@ const validateMessage = () => {
     return messageInput.value.trim() !== "";
 }
 
+
+
 //Validate on submit button press - prevent submit if not valid
 submitButton.addEventListener('click', (e) => {
-    //Reset validation (REMINDER- Can this be shortened?)
-    nameInput.parentElement.classList.remove('error');
-    emailInput.parentElement.classList.remove('error');
-    messageInput.parentElement.classList.remove('error');
-
-    nameInput.parentElement.querySelector('small').innerText = "";
-    emailInput.parentElement.querySelector('small').innerText = "";
-    messageInput.parentElement.querySelector('small').innerText = "";
+    let inputs = [nameInput, emailInput, messageInput];
+    inputs.forEach((value) => clearErrMsg(value));
 
     if (!validateName()) {
-        nameInput.parentElement.classList.add('error');
-        nameInput.parentElement.querySelector('small').innerText = "Please enter your name"
+        displayErrMsg(nameInput, "Please enter your name");
     }
 
     if (!validateEmail()) {
-        emailInput.parentElement.classList.add('error');
-        emailInput.parentElement.querySelector('small').innerText = "Please enter a valid email address"
+        displayErrMsg(emailInput,"Please enter a valid email address");
     }
 
     if (!validateMessage()) {
-        messageInput.parentElement.classList.add('error');
-        messageInput.parentElement.querySelector('small').innerText = "Please enter your message"
+        displayErrMsg(messageInput, "Please enter your message");
     }
 
     if (!validateName() || !validateEmail() || !validateMessage()) {
