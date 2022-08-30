@@ -10,13 +10,18 @@ let emailErr = "Please enter a valid email address";
 let messageErr = "Please enter your message";
 
 const displayErrMsg = (input, msg) => {
+    let msgId = input.id + '-err';
     input.parentElement.classList.add('error');
-    input.parentElement.querySelector('small').innerText = msg.toString()
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', msgId);
+    input.parentElement.querySelector('small').innerText = msg.toString();
 }
 
 const clearErrMsg = (input) => {
     let formGroup = input.parentElement;
     formGroup.classList.remove('error');
+    input.removeAttribute('aria-invalid')
+    input.removeAttribute('aria-describedby')
     formGroup.querySelector('small').innerText = "";
 }
 

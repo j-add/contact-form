@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="normalize.css" type="text/css" rel="stylesheet">
     <link href="styles.css" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7c6af540e7.js" crossorigin="anonymous"></script>
@@ -15,37 +16,42 @@
         <small>
             Required fields are followed by a <strong><span class="required" aria-label="required">*</span></strong>
         </small>
+
         <div class="form-group">
             <label for="input-name">
                 Name:
                 <span class="required" aria-label="required">*</span>
             </label>
             <i class="fa-solid fa-user"></i>
-            <input type="text" name="name" id="input-name" autocomplete="off">
-            <small></small>
+            <input type="text" name="name" id="input-name" autocomplete="name" aria-required="true">
+            <small id="input-name-err"></small>
         </div>
+
         <div class="form-group">
             <label for="input-email">
                 Email:
                 <span class="required" aria-label="required">*</span>
             </label>
-            <i class="fa-solid fa-at"></i>
-            <input type="email" name="email" id="input-email" autocomplete="off">
-            <small></small>
+            <i class="fa-solid fa-at" role="img"></i>
+            <input type="email" name="email" id="input-email" autocomplete="email" aria-required="true">
+            <small id="input-email-err"></small>
         </div>
+
         <div class="form-group">
             <label for="input-message">
                 Message:
                 <span class="required" aria-label="required">*</span>
             </label>
-            <textarea name="message" id="input-message" rows="4" autocomplete="off"></textarea>
-            <small></small>
+            <textarea name="message" id="input-message" rows="4" autocomplete="off" aria-required="true"></textarea>
+            <small id="input-message-err"></small>
         </div>
+
         <div class="antispam" aria-hidden="true">
             <label for="url">Leave this empty: </label>
             <input type="text" name="url" id="url" value="" autocomplete="off">
         </div>
-        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
+
+        <button type="submit"><i class="fa-solid fa-paper-plane" role="img"></i> Send</button>
     </form>
 </body>
 </html>

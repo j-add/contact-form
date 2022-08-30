@@ -75,6 +75,7 @@ form .form-group textarea:focus {
 }
 form .antispam {
   display: none;
+  tab-index: -1;
 }
 form .required {
   color: darkred;
