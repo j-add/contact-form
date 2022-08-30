@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link href="normalize.css" type="text/css" rel="stylesheet">
-    <link href="styles.css" type="text/css" rel="stylesheet">
+    <link href="stylesheets/normalize.css" type="text/css" rel="stylesheet">
+    <link href="stylesheets/styles.css" type="text/css" rel="stylesheet">
 </head>
 
 <?php
