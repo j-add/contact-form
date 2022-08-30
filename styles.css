@@ -5,7 +5,41 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  justify-content: center;
+  align-content: center;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: sans-serif;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+form h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+form > small {
+  margin-bottom: 10px;
+}
+form button {
+  margin-top: 15px;
+  width: 100%;
+  height: 45px;
+  background-color: #016FB9;
+  border: 2px solid #016FB9;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease;
+}
+form button:hover {
+  opacity: 0.8;
+}
+form button i {
+  margin: 0 5px;
 }
 form .form-group {
   display: flex;
@@ -13,8 +47,34 @@ form .form-group {
   margin: 5px 0;
   width: 100%;
 }
-form textarea {
+form .form-group i {
+  position: absolute;
+  margin: 25px 10px;
+}
+form .form-group input {
+  height: 30px;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid #ccc;
+  padding: 0 30px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+form .form-group input:focus {
+  border: 2px solid #016FB9;
+}
+form .form-group input:focus + i {
+  color: red;
+}
+form .form-group textarea {
   resize: none;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid #ccc;
+  padding: 5px 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+form .form-group textarea:focus {
+  border: 2px solid #016FB9;
 }
 form .required {
   color: darkred;
@@ -24,6 +84,27 @@ form .error input, form .error textarea {
 }
 form .error small {
   color: darkred;
+}
+
+.message {
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: sans-serif;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.message h1 {
+  margin-top: 0;
+}
+.message p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.message p > span {
+  display: block;
+  margin: 5px 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="normalize.css" type="text/css" rel="stylesheet">
+    <link href="styles.css" type="text/css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7c6af540e7.js" crossorigin="anonymous"></script>
+</head>
+
 <?php
 //Check if user has come from form and submitted data, else kick back to form
 if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
@@ -12,14 +23,21 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'
 
     //Validate - Check inputs are not empty and email is valid
     //If all fields are valid, show the message, else show errors
+    echo "<section class='message'>";
+
     if (!empty($cleanedName)
         && filter_var($cleanedEmail, FILTER_VALIDATE_EMAIL)
         && !empty($cleanedMessage)) {
-        echo nl2br("Success!\nYour message:\n");
-        echo nl2br("Name: $cleanedMessage\nEmail: $cleanedEmail\nMessage: $cleanedMessage");
+        echo "<h1>Success!</h1>";
+        echo "<p>Your message:</p>";
+        echo "<p>"
+            . "<strong>Name: </strong>$cleanedName<br>"
+            . "<strong>Email: </strong>$cleanedEmail<br>"
+            . "<strong>Message: </strong><span>$cleanedMessage</span>"
+            . "</p>";
         echo "<br><a href='index.html'>Back to form</a>";
     } else {
-        echo "Uh oh, looks like something's wrong with your data";
+        echo "<p>Uh oh, looks like something's wrong with your data</p>";
         echo "<ul>";
 
         if (!empty($cleanedName)) {
@@ -35,6 +53,8 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'
         }
         echo "</ul><br><a href='index.html'>Back to form</a>";
     }
+
+    echo "</section>";
 
 } else {
     header('Location: index.html');
