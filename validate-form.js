@@ -21,6 +21,15 @@ const validateMessage = () => {
 
 //Validate on submit button press - prevent submit if not valid
 submitButton.addEventListener('click', (e) => {
+    //Reset validation (REMINDER- Can this be shortened?)
+    nameInput.parentElement.classList.remove('error');
+    emailInput.parentElement.classList.remove('error');
+    messageInput.parentElement.classList.remove('error');
+
+    nameInput.parentElement.querySelector('small').innerText = "";
+    emailInput.parentElement.querySelector('small').innerText = "";
+    messageInput.parentElement.querySelector('small').innerText = "";
+
     if (!validateName()) {
         nameInput.parentElement.classList.add('error');
         nameInput.parentElement.querySelector('small').innerText = "Please enter your name"
