@@ -51,7 +51,7 @@ messageInput.addEventListener('blur', () => {
 
 //Validate on submit button press - prevent submit if not valid
 submitButton.addEventListener('click', (e) => {
-    inputs.forEach((value) => clearErrMsg(value));
+    inputs.map((value) => clearErrMsg(value));
 
     if (!validateName()) {
         displayErrMsg(nameInput, nameErr);
