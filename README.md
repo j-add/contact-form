@@ -19,3 +19,4 @@ A simple contact form
 - Normalize CSS reset - https://necolas.github.io/normalize.css/
 - RFC 5322 official standard email regex - https://emailregex.com/
 - Font Awesome icons - https://fontawesome.com/
+- 
