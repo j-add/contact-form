@@ -7,7 +7,6 @@
     <link href="stylesheets/normalize.css" type="text/css" rel="stylesheet">
     <link href="stylesheets/styles.css" type="text/css" rel="stylesheet">
 </head>
-
 <?php
 //Check if user has come from form and submitted data, else kick back to form
 if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message']) && empty($_POST['url'])) {
@@ -19,7 +18,6 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'
     $cleanedName = htmlspecialchars(ucwords(trim($name)));
     $cleanedEmail = filter_var(trim($email), FILTER_SANITIZE_EMAIL);
     $cleanedMessage = htmlspecialchars(trim($message));
-
 
     //Validate - Check inputs are not empty and email is valid (using built-in functions)
     //If all fields are valid, show the message, else show errors
@@ -61,23 +59,18 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'
     } else {
         echo "<p>Uh oh, looks like something's wrong with your data</p>";
         echo "<ul>";
-
-        if (!empty($cleanedName)) {
+        if (empty($cleanedName)) {
             echo "<li>You did not enter a valid name</li>";
         }
-
         if (!filter_var($cleanedEmail, FILTER_VALIDATE_EMAIL)) {
             echo "<li>You did not enter a valid email</li>";
         }
-
         if (empty($cleanedMessage)) {
             echo "<li>You did not enter a message</li>";
         }
         echo "</ul><br><a href='index.html'>Back to form</a>";
     }
-
     echo "</section>";
-
 } else {
     header('Location: index.html');
 }
