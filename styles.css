@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 100%;
+}
+form textarea {
+  resize: none;
+}
+form .required {
+  color: darkred;
+}
+
+/*# sourceMappingURL=styles.css.map */
