@@ -21,5 +21,15 @@ form {
   .required {
     color: darkred;
   }
+
+  .error {
+    input, textarea {
+      border: 1px solid darkred;
+    }
+
+    small {
+      color: darkred;
+    }
+  }
 }
 

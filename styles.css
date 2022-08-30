@@ -19,5 +19,11 @@ form textarea {
 form .required {
   color: darkred;
 }
+form .error input, form .error textarea {
+  border: 1px solid darkred;
+}
+form .error small {
+  color: darkred;
+}
 
 /*# sourceMappingURL=styles.css.map */

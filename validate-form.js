@@ -21,6 +21,21 @@ const validateMessage = () => {
 
 //Validate on submit button press - prevent submit if not valid
 submitButton.addEventListener('click', (e) => {
+    if (!validateName()) {
+        nameInput.parentElement.classList.add('error');
+        nameInput.parentElement.querySelector('small').innerText = "Please enter your name"
+    }
+
+    if (!validateEmail()) {
+        emailInput.parentElement.classList.add('error');
+        emailInput.parentElement.querySelector('small').innerText = "Please enter a valid email address"
+    }
+
+    if (!validateMessage()) {
+        messageInput.parentElement.classList.add('error');
+        messageInput.parentElement.querySelector('small').innerText = "Please enter your message"
+    }
+
     if (!validateName() || !validateEmail() || !validateMessage()) {
         e.preventDefault()
     }
